@@ -2,8 +2,6 @@
 #include <stdio.h>
 
 /* Ardışık arama motoru
- * Yazan Tosun
- * Bunu bilgisayarda yazdırana kosun...
  * Sevgilerle....*/
 
 
