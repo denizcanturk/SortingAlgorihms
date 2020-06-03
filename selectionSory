@@ -1,0 +1,55 @@
+/*
+ * selectionSort Algorithm
+ * Prepared with the swapping action
+ * description in order to make it easy... 
+ * Or shouldnt I? >:)
+ * That was for me anyway... 
+*/
+
+#include  <stdio.h>
+
+void printArray(int arr[], int size){
+    printf("\n");
+    for (int i = 0; i < size ; i++)
+        printf("%d\t", arr[i]);
+}
+
+void selectionSort(int arr[], int size){
+    int smallest, temp;
+
+    for (int i = 0 ; i < size -1 ; i++){
+        smallest = i;
+        printf("\n\n%d.adım :", i+1);
+
+        for(int j = i +1; j < size ; j++){
+            if (arr[j] < arr[smallest])
+                smallest = j;
+        }
+
+        if (smallest != i){
+            printf("Swapping : [%d]<->[%d]", arr[i], arr[smallest]);
+            temp = arr[smallest];
+            arr[smallest] = arr[i];
+            arr[i] = temp;
+        } else
+            printf("Swapping : [%d]<->[%d]", arr[i], arr[smallest]);
+
+        //printf("%d.adım :\n", i+1);
+        printArray(arr,size);
+    }
+    printf("\n\nSirali  :");
+    printf("\n--------------------------------------------------");
+    printArray(arr, size);
+
+}
+
+int main(){
+    int unsortedArray[]={3,45,1,68,9,454,7,2};
+    int size = sizeof (unsortedArray)/sizeof (unsortedArray[0]);
+    printf("\nSirasiz  :");
+    printf("\n--------------------------------------------------");
+    printArray(unsortedArray, size);
+    selectionSort(unsortedArray,size);
+    printf("\n");
+    return 0;
+}
