@@ -3,6 +3,7 @@
  * AUTHOR       : Annonymous
  * Narrator     : Deniz CANTÜRK
  * Date         : 04 Jun 2020
+ * O Notation   : O(n^2)
  * DESCRIPTION  : This snippet gives the oversight
  * on usage of QuickSearchrunning mainly on dividing
  *  the array to 2 piecesand making the comparison
