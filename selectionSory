@@ -3,6 +3,7 @@
  * AUTHOR       : Annonymous
  * Narrator     : Deniz CANTÜRK
  * Date         : 03 Jun 2020
+ * O Notation   : O(n^2)
  * DESCRIPTION  : Prepared with the swapping action
  * description in order to make it easy... 
 */
