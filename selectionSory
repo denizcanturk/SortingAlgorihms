@@ -1,9 +1,10 @@
 /*
- * selectionSort Algorithm
- * Prepared with the swapping action
+ * NAME         : Combining Search Algorithm
+ * AUTHOR       : Annonymous
+ * Narrator     : Deniz CANTÜRK
+ * Date         : 03 Jun 2020
+ * DESCRIPTION  : Prepared with the swapping action
  * description in order to make it easy... 
- * Or shouldnt I? >:)
- * That was for me anyway... 
 */
 
 #include  <stdio.h>
