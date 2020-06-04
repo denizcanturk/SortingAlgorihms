@@ -1,3 +1,12 @@
+/*
+ * NAME         : binaryTree Search Algorithm
+ * AUTHOR       : Annonymous
+ * Narrator     : Deniz CANTÜRK
+ * Date         : 05 Jun 2020
+ * DESCRIPTION  : This snippet gives the oversight
+ * on usage of BinaryTree Search...
+*/
+
 #include <iostream>
 
 using namespace std;
