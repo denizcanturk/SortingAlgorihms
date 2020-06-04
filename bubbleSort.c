@@ -2,6 +2,7 @@
  * Subject    : Bubble Sort
  * Orijinator : Anonymous
  * Narrator   : Deniz CANTÜRK
+ * O Natation : O(n^2)
  * Purpose    : Simplification and visualisation of Bubble Sorting
 */
 #define hold printf("Press any key..."); getchar();                       /*I love macros..*/
