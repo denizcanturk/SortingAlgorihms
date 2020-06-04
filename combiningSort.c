@@ -3,6 +3,8 @@
  * AUTHOR       : Annonymous
  * Narrator     : Deniz CANTÜRK
  * Date         : 05 Jun 2020
+ * O Notation   : O(n*log(n))
+ * Stable       : YES
  * DESCRIPTION  : This snippet gives the oversight
  * on usage of CombiningSearchAlgo mainly on dividing
  *  the array to 2 pieces and making the comparison
