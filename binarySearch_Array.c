@@ -1,3 +1,16 @@
+/*
+ * NAME         : Binary Search Tree Example
+ * AUTHOR       : Annonymous
+ * Narrator     : Deniz CANTÜRK
+ * Date         : 05 Jun 2020
+ * DESCRIPTION  : Binary Search Trees assume that
+ * we already have well sorted binary trees for effective run.
+ * Main idea to choose right or left path according ro comparison
+ * with the Root Node. And it progresses recursively which makes
+ * it very quick and effective...
+ * But, precondition is WELL-SORTED Tree... Otherwise will FAIL!!!
+*/
+
 #include <stdio.h>
 
 void aralik_yazidr(int arr[],int ilk, int son){
