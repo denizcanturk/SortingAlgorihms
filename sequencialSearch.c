@@ -1,10 +1,17 @@
 /*
+ * NAME         : sequentialSort Algorithm
+ * AUTHOR       : Annonymous
+ * Narrator     : Deniz CANTÜRK
+ * Date         : 04 Jun 2020
+ * O Notation   : O(n)
+ * DESCRIPTION  : This snippet gives the oversight
+ * on usage of sequential Sort Algo... One of the 
+ * simpliest one, just going through all the elements
+ * in the array to find it... O(n)
+*/
+
+
 #include <stdio.h>
-
-/* Ardışık arama motoru
- * Sevgilerle....*/
-
-
 
 void ardisik_arama(int arr[], int aranan){
     int sizeofit = sizeof (arr)/ sizeof (arr [0]);
