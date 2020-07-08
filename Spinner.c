@@ -3,13 +3,14 @@
 
 void spinner(){
 
-    char spr[4]={"abcd"};
+    char spr[4]={"\\|/-"};
     int i =0;
     while(i<10){
-        printf("%c\r\n", spr[i]);
-        usleep(99999);
+        printf("%c\r", spr[i]);
+        fflush(stdout);
+        usleep(99999);  //can bu adjusted as you wish... I like it slow... >:)
         i++;
-        if (i == 5)
+        if (i == 4)
             i = 0;
         printf("\r\r");
     }
