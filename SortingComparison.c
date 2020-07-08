@@ -50,36 +50,41 @@ clock_t quickSortEnd=0, divideSortEnd=0, bubbleSortEnd=0, combineSortEnd=0, sele
 gnomeSortEnd=0, heapSortEnd=0,countSortEnd=0, radixSortEnd=0, bucketSortEnd=0, shellSortEnd=0, cocktailSortEnd=0, pancakeSortEnd=0;
 
 /* Start of Prototype */
-void printArray(const int[],int);
-int *createArray();
-int *copyArray(const int[],int);
-int divide(int[],int,int );
-void quickSort(int[],int,int);
-void bubbleSorting(int[], int);
-void combineSort(int[], int, int);
-void selectionSort(int[], int);
-void StackSort(int[], int);
-void StackToMax(int[], int, int);
-void gnomeSort(int[], int);
-void heapify(int[], int, int);
-void heapSort(int[], int);
-int getMax(int[], int);
-void countSort(int[], int, int);
-void radixsort(int[], int);
-void Bucket_Sort(int[],int);
-void shellSort(int[],int);
-void CocktailSort(int[], int);
-void pancakeSort(int *arr, int);
-void keepMainClean(const int[],int);
-void * spinner(void * u);
-    /* Color Definitions */
-    void red ();
-    void yellow();
-    void green();
-    void magenta();
-    void cyan();
-    void reset ();
-    /* End of Color Definitions */
+        // Array Function
+        void printArray(const int[],int);
+        int *createArray();
+        int *copyArray(const int[],int);
+        //End Of Array Function
+    /*Start of Sorting Functions*/
+    int divide(int[],int,int );
+    void quickSort(int[],int,int);
+    void bubbleSorting(int[], int);
+    void combineSort(int[], int, int);
+    void selectionSort(int[], int);
+    void StackSort(int[], int);
+    void StackToMax(int[], int, int);
+    void gnomeSort(int[], int);
+    void heapify(int[], int, int);
+    void heapSort(int[], int);
+    int getMax(int[], int);
+    void countSort(int[], int, int);
+    void radixsort(int[], int);
+    void Bucket_Sort(int[],int);
+    void shellSort(int[],int);
+    void CocktailSort(int[], int);
+    void pancakeSort(int *arr, int);
+    void keepMainClean(const int[],int);
+    void * spinner(void * u);
+    /*End of Sorting Functions*/
+    
+        /* Color Definitions */
+        void red ();
+        void yellow();
+        void green();
+        void magenta();
+        void cyan();
+        void reset ();
+        /* End of Color Definitions */
 
 //* End Of Prototype's *//
 
@@ -87,7 +92,7 @@ void * spinner(void * u);
 int main(){
     int *orig = createArray();
     keepMainClean(orig,N);
-    //printArray(orig,N);
+    //printArray(orig,N);    //Do you really need to display 100000 elements on the terminal... No! You don't want to... 
     free(orig);
     return 0;
 }
@@ -452,13 +457,9 @@ void CocktailSort(int a[], int n)
     int end = n - 1;
 
     while (swapped) {
-        // reset the swapped flag on entering
-        // the loop, because it might be true from
-        // a previous iteration.
+
         swapped = false;
 
-        // loop from left to right same as
-        // the bubble sort
         for (int i = start; i < end; ++i) {
             if (a[i] > a[i + 1]) {
                 temp = a[i];
@@ -468,21 +469,13 @@ void CocktailSort(int a[], int n)
                 swapped = true;
             }
         }
-
-        // if nothing moved, then array is sorted.
         if (!swapped)
             break;
 
-        // otherwise, reset the swapped flag so that it
-        // can be used in the next stage
         swapped = false;
 
-        // move the end point back by one, because
-        // item at the end is in its rightful spot
         --end;
 
-        // from right to left, doing the
-        // same comparison as in the previous stage
         for (int i = end - 1; i >= start; --i) {
             if (a[i] > a[i + 1]) {
                 temp = a[i];
@@ -491,10 +484,6 @@ void CocktailSort(int a[], int n)
                 swapped = true;
             }
         }
-
-        // increase the starting point, because
-        // the last stage would have moved the next
-        // smallest number to its rightful spot.
         ++start;
     }
 }
