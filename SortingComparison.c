@@ -8,13 +8,19 @@
  * Stable       : Varies
  * DESCRIPTION  : This snippet gives the oversight
  * on Time Complexity and quickness of the different
- * sorting algorithms...
+ * sorting algorithms including :
+ *      Quick Sort
+ *      Bubble Sort
+ *      Merge Sort
+ *      Selection Sort
+ *      Stack Sort
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <obstack.h>
 #include <time.h>
+#include <unistd.h>
 
 #define seperator printf("\n");for (int i = 0; i <106 ; i++) printf("-");printf("\n");  /*I love macros...*/
 
@@ -36,12 +42,14 @@ void selectionSort(int[], int);
 void StackSort(int[], int);
 void StackToMax(int[], int, int);
 void keepMainClean(const int[],int);
+void spinner();
 /* End Of Prototype's */
 
 /* Pretty Clean Main :) */
 int main(){
     int *orig = createArray();
     keepMainClean(orig,N);
+    printArray(orig,N);
     free(orig);
     return 0;
 }
@@ -78,6 +86,7 @@ void printArray(const int dizi[], int N){
     do {
         printf("|%d|\t\t", dizi[i]);
         i++;
+        usleep(999);
         if (i % 12 == 0)
             printf ("\n");
     }while (i < N);
@@ -233,9 +242,27 @@ void StackSort(int arr[], int N)
     }
 }
 
+/* Fancy Progress Indicator... */
+void spinner(){
+    char spr[4]={"\\|/-"};
+    int i =0;
+    int n = 0;
+    while(n<100){
+        printf("%c\r", spr[i]);
+        fflush(stdout);
+        usleep(59999);
+        i++;
+        if (i == 4)
+            i = 0;
+        n++;
+    }
+    printf("\r");
+}
+
 
 /* Trying to Keep Main Clean */
 void keepMainClean(const int orig[] , int N){
+    spinner();
     int *copy = copyArray(orig,N);
     printf("\n"
            "A New array with %d element just created...\n\n",N);
@@ -290,3 +317,4 @@ void keepMainClean(const int orig[] , int N){
            (double)(stackSortEnd-stackSortBegin)/CLOCKS_PER_SEC);
     free(copy);
 }
+
