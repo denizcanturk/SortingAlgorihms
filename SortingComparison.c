@@ -44,10 +44,10 @@
 int moved = 0;
 int N=0,R=0;
 clock_t quickSortBegin=0, divideSortBegin=0, bubbleSortBegin=0, combineSortBegin=0, selectSortBegin=0, stackSortBegin=0,
-        gnomeSortBegin=0, heapSortBegin=0,countSortBegin=0, radixSortBegin=0, bucketSortBegin=0, shellSortBegin=0, cocktailSortBegin=0, pancakeSortBegin=0,bogoSortBegin=0;
+        gnomeSortBegin=0, heapSortBegin=0,countSortBegin=0, radixSortBegin=0, bucketSortBegin=0, shellSortBegin=0, cocktailSortBegin=0, pancakeSortBegin=0;
 
 clock_t quickSortEnd=0, divideSortEnd=0, bubbleSortEnd=0, combineSortEnd=0, selectSortEnd=0, stackSortEnd=0,
-gnomeSortEnd=0, heapSortEnd=0,countSortEnd=0, radixSortEnd=0, bucketSortEnd=0, shellSortEnd=0, cocktailSortEnd=0, pancakeSortEnd=0, bogoSortEnd=0;
+gnomeSortEnd=0, heapSortEnd=0,countSortEnd=0, radixSortEnd=0, bucketSortEnd=0, shellSortEnd=0, cocktailSortEnd=0, pancakeSortEnd=0;
 
 /* Start of Prototype */
 void printArray(const int[],int);
@@ -671,7 +671,6 @@ printf("BUCKET SORT\t: %f\n",(double)(bucketSortEnd-bucketSortBegin)/CLOCKS_PER_
 printf("SHELL SORT\t: %f\n",(double)(shellSortEnd-shellSortBegin)/CLOCKS_PER_SEC);
 printf("COCKTAIL SORT\t: %f\n",(double)(cocktailSortEnd-cocktailSortBegin)/CLOCKS_PER_SEC);
 printf("PANCAKE SORT\t: %f\n",(double)(pancakeSortEnd-pancakeSortBegin)/CLOCKS_PER_SEC);
-printf("BOGO SORT\t: %f\n",(double)(bogoSortEnd-bogoSortBegin)/CLOCKS_PER_SEC);
 
 
     free(copy);
