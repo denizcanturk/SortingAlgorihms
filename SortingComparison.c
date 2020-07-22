@@ -92,7 +92,7 @@ void reset ();
 int main(){
     int *orig = createArray();
     keepMainClean(orig,N);
-    //printArray(orig,N);    //Do you really need to display 100000 elements on the terminal... No! You don't want to... 
+    //printArray(orig,N);    //Do you really need to display 100000 elements on the terminal... No! You don't want to...
     free(orig);
     return 0;
 }
@@ -101,13 +101,13 @@ int main(){
 int* createArray(){
     printf("How many elements do you want in an Array : ");
     scanf("%d", &N);
-    
+
     printf("What is the MAX_RANGE for Random Numbers : ");
     scanf("%d", &R);
-    
+
     // fflush(stdin);
     int *createdArray = malloc (N * sizeof (int));
-    
+
     for (int i = 0; i < N ; i++){
         createdArray[i] = (rand() % R);
     }
@@ -162,10 +162,10 @@ int divide(int arr[], int frst, int lst){
 /* QUICK SORT Algorithm */
 void quickSort(int arr[], int frst, int lst){
     int pos = divide(arr, frst, lst);
-    
+
     if (frst < pos - 1)
         quickSort(arr, frst, pos - 1);
-    
+
     if (pos < lst)
         quickSort(arr, pos, lst);
 }
@@ -174,7 +174,7 @@ void quickSort(int arr[], int frst, int lst){
 /* BUBBLE SORT Algorithm */
 void bubbleSorting(int arr[], int size){
     int temp;
-    
+
     for (int i = 0; i < size-1 ; i++){
         for (int j = 0 ; j < size -i -1 ; j++){
             if(arr[j] > arr[j+1]) {
@@ -185,7 +185,7 @@ void bubbleSorting(int arr[], int size){
             }
             moved= arr[j+1];
         }
-        
+
     }
     moved = 0;
 }
@@ -208,7 +208,7 @@ void combineThem(int arr[], int frst, int mid, int lst){
     while (i <= mid) temp[k++] = arr[i++];
     while (j <= lst) temp[k++] = arr[j++];
     k--;
-    
+
     while (k >= 0)
     {
         arr[frst + k] = temp[k];
@@ -232,23 +232,23 @@ void combineSort(int dizi[], int ilk, int son)
 /* SELECTION SORT Algorithm */
 void selectionSort(int arr[], int size){
     int smallest, temp;
-    
+
     for (int i = 0 ; i < size -1 ; i++){
         smallest = i;
-        
+
         for(int j = i +1; j < size ; j++){
             if (arr[j] < arr[smallest])
                 smallest = j;
         }
-        
+
         if (smallest != i){
             temp = arr[smallest];
             arr[smallest] = arr[i];
             arr[i] = temp;
         }
     }
-    
-    
+
+
 }
 
 /* STUCK SORT Algorithm */
@@ -257,10 +257,10 @@ void StackToMax(int arr[], int n, int i) {
     int lefty = 2 * i + 1;
     int righty = 2 * i + 2;
     int temp;
-    
+
     if (lefty < n && arr[lefty] > arr[maxi])
         maxi = lefty;
-    
+
     if (righty < n && arr[righty] > arr[maxi])
         maxi = righty;
     if (maxi != i)
@@ -290,7 +290,7 @@ void gnomeSort(int arr[], int n)
 {
     int index = 0;
     int temp;
-    
+
     while (index < n) {
         if (index == 0)
             index++;
@@ -313,22 +313,22 @@ void heapify(int arr[], int n, int i)
     int largest = i; // Initialize largest as root
     int l = 2*i + 1; // left = 2*i + 1
     int r = 2*i + 2; // right = 2*i + 2
-    
+
     // If left child is larger than root
     if (l < n && arr[l] > arr[largest])
         largest = l;
-    
+
     // If right child is larger than largest so far
     if (r < n && arr[r] > arr[largest])
         largest = r;
-    
+
     // If largest is not root
     if (largest != i)
     {
         temp = arr[i];
         arr[i] = arr[largest];
         arr[largest]= temp;
-        
+
         // Recursively heapify the affected sub-tree
         heapify(arr, n, largest);
     }
@@ -340,7 +340,7 @@ void heapSort(int arr[], int n)
     // Build heap (rearrange array)
     for (int i = n / 2 - 1; i >= 0; i--)
         heapify(arr, n, i);
-    
+
     // One by one extract an element from heap
     for (int i=n-1; i>0; i--)
     {
@@ -348,7 +348,7 @@ void heapSort(int arr[], int n)
         temp = arr[0];
         arr[0] = arr[i];
         arr[i]=arr[0];
-        
+
         // call max heapify on the reduced heap
         heapify(arr, i, 0);
     }
@@ -369,23 +369,23 @@ void countSort(int arr[], int n, int exp)
 {
     int output[n]; // output array
     int i, count[10] = {0};
-    
+
     // Store count of occurrences in count[]
     for (i = 0; i < n; i++)
         count[ (arr[i]/exp)%10 ]++;
-    
+
     // Change count[i] so that count[i] now contains actual
     //  position of this digit in output[]
     for (i = 1; i < 10; i++)
         count[i] += count[i - 1];
-    
+
     // Build the output array
     for (i = n - 1; i >= 0; i--)
     {
         output[count[ (arr[i]/exp)%10 ] - 1] = arr[i];
         count[ (arr[i]/exp)%10 ]--;
     }
-    
+
     for (i = 0; i < n; i++)
         arr[i] = output[i];
 }
@@ -396,7 +396,7 @@ void radixsort(int arr[], int n)
 {
     // Find the maximum number to know number of digits
     int m = getMax(arr, n);
-    
+
     // Do counting sort for every digit. Note that instead
     // of passing digit number, exp is passed. exp is 10^i
     // where i is current digit number
@@ -434,13 +434,13 @@ void shellSort(int arr[], int n)
             // add a[i] to the elements that have been gap sorted
             // save a[i] in temp and make a hole at position i
             int temp = arr[i];
-            
+
             // shift earlier gap-sorted elements up until the correct
             // location for a[i] is found
             int j;
             for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
                 arr[j] = arr[j - gap];
-            
+
             //  put temp (the original a[i]) in its correct location
             arr[j] = temp;
         }
@@ -455,27 +455,27 @@ void CocktailSort(int a[], int n)
     bool swapped = true;
     int start = 0;
     int end = n - 1;
-    
+
     while (swapped) {
-        
+
         swapped = false;
-        
+
         for (int i = start; i < end; ++i) {
             if (a[i] > a[i + 1]) {
                 temp = a[i];
                 a[i] = a[i + 1];
                 a[i + 1] = temp;
-                
+
                 swapped = true;
             }
         }
         if (!swapped)
             break;
-        
+
         swapped = false;
-        
+
         --end;
-        
+
         for (int i = end - 1; i >= start; --i) {
             if (a[i] > a[i + 1]) {
                 temp = a[i];
@@ -518,7 +518,7 @@ void pancakeSort(int *arr, int n)
     for (int curr_size = n; curr_size > 1; --curr_size)
     {
         int mi = findMax(arr, curr_size);
-        
+
         if (mi != curr_size-1)
         {
             flip(arr, mi);
@@ -530,13 +530,13 @@ void pancakeSort(int *arr, int n)
 /* Trying to Keep Main Clean */
 void keepMainClean(const int orig[] , int N){
     pthread_t tid;
-    
+
     int *copy = copyArray(orig,N);
     printf("\n"
            "A New array with %d element just created...\n\n",N);
-    
+
     pthread_create(&tid, NULL,&spinner,NULL);
-    
+
     printf("Starting QUICK SORT Algo...\n");
     quickSortBegin = clock();
     quickSort(copy,0,N-1);
@@ -544,7 +544,7 @@ void keepMainClean(const int orig[] , int N){
     printf("QUICK SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting BUBBLE SORT Algo...\n");
     bubbleSortBegin = clock();
     bubbleSorting(copy,N);
@@ -552,7 +552,7 @@ void keepMainClean(const int orig[] , int N){
     printf("BUBBLE SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting SELECTION SORT Algo...\n");
     selectSortBegin = clock();
     selectionSort(copy,N);
@@ -560,7 +560,7 @@ void keepMainClean(const int orig[] , int N){
     printf("SELECTION SORT Algorithm\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting COMBINE SORT Algo...\n");
     combineSortBegin = clock();
     combineSort(copy,0,N-1);
@@ -568,7 +568,7 @@ void keepMainClean(const int orig[] , int N){
     printf("COMBINE SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting STACK SORT Algo...\n");
     stackSortBegin = clock();
     StackSort(copy,N);
@@ -576,7 +576,7 @@ void keepMainClean(const int orig[] , int N){
     printf("STACK SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting GNOME SORT Algo...\n");
     gnomeSortBegin = clock();
     gnomeSort(copy,N);
@@ -584,7 +584,7 @@ void keepMainClean(const int orig[] , int N){
     printf("GNOME SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting HEAP SORT Algo...\n");
     heapSortBegin = clock();
     heapSort(copy,N);
@@ -592,7 +592,7 @@ void keepMainClean(const int orig[] , int N){
     printf("HEAP SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting COUNT SORT Algo...\n");
     countSortBegin = clock();
     countSort(copy,0,N);
@@ -600,7 +600,7 @@ void keepMainClean(const int orig[] , int N){
     printf("COUNT SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting RADIX SORT Algo...\n");
     radixSortBegin = clock();
     radixsort(copy,N);
@@ -608,7 +608,7 @@ void keepMainClean(const int orig[] , int N){
     printf("RADIX SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting BUCKET SORT Algo...\n");
     bucketSortBegin = clock();
     Bucket_Sort(copy,N);
@@ -616,7 +616,7 @@ void keepMainClean(const int orig[] , int N){
     printf("BUCKET SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting SHELL SORT Algo...\n");
     shellSortBegin = clock();
     shellSort(copy,N);
@@ -624,7 +624,7 @@ void keepMainClean(const int orig[] , int N){
     printf("SHELL SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting COCKTAIL SORT Algo...\n");
     cocktailSortBegin = clock();
     CocktailSort(copy,N);
@@ -632,19 +632,19 @@ void keepMainClean(const int orig[] , int N){
     printf("COCKTAIL SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
     copy = copyArray(orig,N);
-    
+
     printf("Starting PANCAKE SORT Algo...\n");
     pancakeSortBegin = clock();
     pancakeSort(copy,N);
     pancakeSortEnd = clock();
     printf("PANCAKE SORT Algorithm\t\t[ "); green(); printf("COMPLETED"); reset(); printf(" ]\n\n");
     free(copy);
-    
+
     pthread_cancel(tid);
-    
+
     printf("RUNTIME COMPARISON for %d Elements : \n",N);
     seperator;
-    
+
     printf("QUICK SORT\t: %f\n",(double)(quickSortEnd-quickSortBegin)/CLOCKS_PER_SEC);
     printf("BUBBLE SORT\t: %f\n",(double)(bubbleSortEnd-bubbleSortBegin)/CLOCKS_PER_SEC);
     printf("SELECTION SORT\t: %f\n",(double)(selectSortEnd-selectSortBegin)/CLOCKS_PER_SEC);
@@ -658,18 +658,18 @@ void keepMainClean(const int orig[] , int N){
     printf("SHELL SORT\t: %f\n",(double)(shellSortEnd-shellSortBegin)/CLOCKS_PER_SEC);
     printf("COCKTAIL SORT\t: %f\n",(double)(cocktailSortEnd-cocktailSortBegin)/CLOCKS_PER_SEC);
     printf("PANCAKE SORT\t: %f\n",(double)(pancakeSortEnd-pancakeSortBegin)/CLOCKS_PER_SEC);
-    
-    
+
+
 }
 
 void * spinner(void * u){
-    
+
     char spr[4]={"\\|/-"};
     int i =0;
     while(i<5){
         printf("Running...%c\r", spr[i]);
         fflush(stdout);
-        
+
         usleep(99999);
         i++;
         if (i == 4)
